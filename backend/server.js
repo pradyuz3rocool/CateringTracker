@@ -77,33 +77,23 @@ router.route('/attendee/:QRCode')
                 res.json(attendee);
             });
 
-    })
-    // get the bear with that id (accessed at GET
-    // http://localhost:8080/api/bears/:bear_id)
-    .put(function (req, res) {
-
-        // use our bear model to find the bear we want
-        Attendees
-            .update({
-                "QRCode": req.params.QRCode
-            }, function (err, attende) {
-
-                if (err) 
-                    res.send(err);
-                
-                attende[0].Breakfast = req.body.Breakfast;
-                attende[0].Lunch = req.body.Lunch;
-                attende[0].Dinner = req.body.Dinner;
-
-                res.json(attende);
-
-            });
     });
+// get the bear with that id (accessed at GET
+// http://localhost:8080/api/bears/:bear_id) .put(function (req, res) { // use
+// our bear model to find the bear we want Attendees     .update({ "QRCode":
+// req.params.QRCode     }, function (err, attende) {         if (err)
+// res.send(err);         attende[0].Breakfast = req.body.Breakfast;
+// attende[0].Lunch = req.body.Lunch;         attende[0].Dinner =
+// req.body.Dinner;     });
+});
 // more routes for our API will happen here REGISTER OUR ROUTES
 // ------------------------------- all of our routes will be prefixed with /api
-app.use('/api', router);
+app
+.use('/api', router);
 
 // START THE SERVER
 // =============================================================================
-app.listen(port);
-console.log('Magic happens on port ' + port);
+app
+.listen(port);
+console
+.log('Magic happens on port ' + port);
